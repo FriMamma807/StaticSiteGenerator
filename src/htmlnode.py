@@ -13,8 +13,14 @@ class HTMLNode:
         raise NotImplementedError()
 
     def props_to_html(self):
-        result = ""
-        for k, v in self.props:
-            result += f" {k}={v}"
-        return result
+        if self.props is not None:
+            result = ""
+            for key in self.props:
+                result += f" {key}={self.props[key]}"
+            return result
+        else:
+            return None
+
+
+
 
